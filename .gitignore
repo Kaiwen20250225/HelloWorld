@@ -34,3 +34,8 @@
 #folders
 bin/
 obj/
+
+#layout file
+*.layout
+
+*.depend

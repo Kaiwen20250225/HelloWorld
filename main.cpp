@@ -1,23 +1,43 @@
 #include <iostream>
+#include <array>
+
 #define ARRAY_SIZE (10)
+
 using namespace std;
 
 int main()
 {
-    int *iHead = new int[ARRAY_SIZE];
-    int *p = iHead;
+    array<int, ARRAY_SIZE> xTestArray;
 
-    for (int i = 0; i < 10; i++, p++)
+    int i = 0;
+
+    for (auto& it: xTestArray)
     {
-        *p = i;
+        it = i;
+        i++;
     }
 
-    p = iHead;
-    for (int i = 0; i < 10; i++, p++)
+    cout << "Use iterator to go through array" << endl;
+
+    for (const auto& it: xTestArray)
     {
-        cout << *p << endl;
+        cout << it << '\t';
+    }
+    cout << endl << "Use index to get array items" << endl;
+
+
+    for (i = 0; i < ARRAY_SIZE/2; i++)
+    {
+        cout << xTestArray.at(i) << '\t';
+    }
+    cout << endl;
+
+    for (; i < ARRAY_SIZE; i++)
+    {
+        cout << xTestArray.at(i) << '\t';
     }
 
-    cout << "Test finished!" << endl;
+    cout << endl << "Test finished!" << endl;
+
     return 0;
 }
